@@ -1,24 +1,21 @@
-import logo from './logo.svg';
+import { NavLink, Route, Routes } from 'react-router-dom';
 import './App.css';
+import SortVisualizer from './components/sortVisualizer';
+import React from 'react';
+import PathVisualizer from './components/PathVisualizer';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+    <ul>
+    <li><NavLink to='/sort'>Sort</NavLink></li>
+    <li><NavLink to='/path'>Path</NavLink></li>
+    </ul>
+    <Routes>
+      <Route path='/sort' element={<SortVisualizer/>}/>
+      <Route path='/path' element={<PathVisualizer/>}/>
+    </Routes>
+    </React.Fragment>
   );
 }
 
